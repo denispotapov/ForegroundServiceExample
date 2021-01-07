@@ -1,8 +1,9 @@
 package com.example.foregroundserviceexample
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.foregroundserviceexample.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
             val serviceIntent = Intent(this, ExampleService::class.java)
             serviceIntent.putExtra("key", input)
-            startService(serviceIntent)
+            ContextCompat.startForegroundService(this, serviceIntent)
 
         }
 
